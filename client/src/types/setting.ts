@@ -14,4 +14,4 @@ interface SettingsContext extends Settings {
     resetSettings: () => void
 }
 
-export { Settings, SettingsContext }
+export type { Settings, SettingsContext }

@@ -16,4 +16,4 @@ interface ViewContext {
     viewIcons: { [key in VIEWS]: JSX.Element }
 }
 
-export { ViewContext, VIEWS }
+export type { ViewContext, VIEWS }
