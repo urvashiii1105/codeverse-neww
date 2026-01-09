@@ -342,7 +342,9 @@ function Editor() {
         start?: number
         end?: number
     }>({})
-    const cursorMoveTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+    //const cursorMoveTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+    const cursorMoveTimeoutRef = useRef<number | null>(null)
+
 
     const filteredUsers = useMemo(
         () => users.filter((u) => u.username !== currentUser.username),
@@ -401,7 +403,7 @@ function Editor() {
                     clearTimeout(cursorMoveTimeoutRef.current)
                 }
 
-                cursorMoveTimeoutRef.current = setTimeout(() => {
+               cursorMoveTimeoutRef.current = window.setTimeout(() => {
                     socket.emit(SocketEvent.CURSOR_MOVE, {
                         cursorPosition,
                         selectionStart,
