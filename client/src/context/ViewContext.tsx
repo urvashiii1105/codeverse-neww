@@ -5,15 +5,16 @@ import RunView from "@/components/sidebar/sidebar-views/RunView"
 import SettingsView from "@/components/sidebar/sidebar-views/SettingsView"
 import UsersView from "@/components/sidebar/sidebar-views/UsersView"
 import useWindowDimensions from "@/hooks/useWindowDimensions"
-import { VIEWS, ViewContext as ViewContextType } from "@/types/view"
+//import { VIEWS, ViewContext as ViewContextType } from "@/types/view"
+import { VIEWS, type ViewContext } from "@/types/view"
 import { ReactNode, createContext, useContext, useState } from "react"
 import { IoSettingsOutline } from "react-icons/io5"
 import { LuFiles, LuSparkles } from "react-icons/lu"
 import { PiChats, PiPlay, PiUsers } from "react-icons/pi"
 
-const ViewContext = createContext<ViewContextType | null>(null)
+const ViewContext = createContext<ViewContext | null>(null)
 
-export const useViews = (): ViewContextType => {
+export const useViews = (): ViewContext => {
     const context = useContext(ViewContext)
     if (!context) {
         throw new Error("useViews must be used within a ViewContextProvider")
